@@ -11,6 +11,9 @@ d3.json(file_path).then(function(data) {
   //Use otu_labels as the hovertext for the chart.
 
 function dropdown(naveldata) {
+    naveldata['species'].forEach(name=>{
+        var newOption = d3.select('#sel')
+    })
 var data = [{
     type: 'bar',
     orientation: 'horizontal'
