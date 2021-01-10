@@ -10,6 +10,19 @@ d3.json(file_path).then(function(data) {
   //Use otu_ids as the labels for the bar chart.
   //Use otu_labels as the hovertext for the chart.
 
+
+  function init() {
+    // Use D3 to select the dropdown menu
+    var dropdownMenu = d3.selectAll("#selectOption").node();
+    // Assign the dropdown menu item ID to a variable
+    var dropdownMenuID = dropdownMenu.id;
+    // Assign the dropdown menu option to a variable
+    var selectedOption = dropdownMenu.value;
+  
+    console.log(dropdownMenuID);
+    console.log(selectedOption);
+  }
+  
 function dropdown(naveldata) {
     naveldata['species'].forEach(name=>{
         var newOption = d3.select('#sel')
