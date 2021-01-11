@@ -12,7 +12,7 @@ d3.json('samples.json').then(function(data) {
   
 function init() {
 // Use D3 to select the dropdown menu
-var dropdownMenu = d3.selectAll("#selectOption").node();
+var dropdownMenu = d3.selectAll("#selDataset");
 // Assign the dropdown menu item ID to a variable
 var dropdownMenuID = dropdownMenu.id;
 // Assign the dropdown menu option to a variable
@@ -28,36 +28,39 @@ function dropdown(naveldata) {
     naveldata['species'].forEach(name=>{
         var newOption = d3.select('#sel')
 })
+};
 
-
-function buildchart(sampledata) {
-    var graphDiv = document.getElementById('id_of_the_div')
-
+function buildchart() {
+    var barDiv = d3.select('#bar')
+    var bubbleDiv = d3.select('#bubble')
+    var gaugeDiv = d3.select('#gauge')
     var bardata = [{
     x: [1999, 2000, 2001, 2002],
     y: [10, 15, 13, 17],
     type: 'bar',
-    orientation: 'horizontal'
+    orientation: 'h'
     }];
-
+    var bubbledata = [];
+    var gaugedata = [];
     var barlayout = {
-    xaxis: {
-        title: 'Units of Bacteria Type(OTU)',
-        showgrid: false,
-        zeroline: false
-    },
-    yaxis: {
-        title: 'Bacteria Type(OTU)',
-        showline: false
-    }
+        xaxis: {
+            title: 'Units of Bacteria Type(OTU)',
+            showgrid: false,
+            zeroline: false
+        },
+        yaxis: {
+            title: 'Bacteria Type(OTU)',
+            showline: false
+        }
     };
     
-    Plotly.newPlot(graphDiv, bardata, barlayout);
-};
+    var bubblelayout = {};
+    var gaugelayout = {};
+    
 
-  //Create a bubble chart that displays each sample.
-    //Use otu_ids for the x values.
-    //Use sample_values for the y values.
-    //Use sample_values for the marker size.
-    //Use otu_ids for the marker colors.
-    //Use otu_labels for the text values.
+
+    Plotly.newPlot("bar", bardata, barlayout);
+    Plotly.newPlot("gauge", gaugedata, gaugelayout);
+    Plotly.newPlot("bubble", bubbledata, bubblelayout);
+};
+buildchart();
