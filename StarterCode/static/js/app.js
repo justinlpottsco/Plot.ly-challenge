@@ -35,8 +35,8 @@ function buildchart() {
     var bubbleDiv = d3.select('#bubble')
     var gaugeDiv = d3.select('#gauge')
     var bardata = [{
-    x: [1999, 2000, 2001, 2002],
-    y: [10, 15, 13, 17],
+    x: ['otu_ids'],
+    y: ['sample_values'],
     type: 'bar',
     orientation: 'h'
     }];
