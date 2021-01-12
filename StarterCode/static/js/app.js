@@ -39,7 +39,7 @@ function buildchart() {
     y: 'bbtype',
     type: 'bar',
     orientation: 'h'
-    }];
+    }]; 
     var bubbledata = [{
     x: [20, 30, 40, 50],
     y: [20, 30, 40, 50],
