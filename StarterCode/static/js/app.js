@@ -26,7 +26,7 @@ init();
 
 function dropdown(naveldata) {
     naveldata['species'].forEach(name=>{
-        var newOption = d3.select('#sel')
+        var newOption = d3.select('#select')
 })
 };
 
@@ -35,10 +35,20 @@ function buildchart() {
     var bubbleDiv = d3.select('#bubble')
     var gaugeDiv = d3.select('#gauge')
     var bardata = [{
-    x: 'names',
+    x: [20, 30, 40, 50],
     y: 'bbtype',
     type: 'bar',
     orientation: 'h'
+    }];
+    var bubbledata = [{
+    x: [20, 30, 40, 50],
+    y: [20, 30, 40, 50],
+    type: 'bubble',
+    }];
+    var gaugedata = [{
+    x: [20, 30, 40, 50],
+    y: 'bbtype',
+    type: 'gauge',
     }];
     var bubbledata = [];
     var gaugedata = [];
