@@ -35,14 +35,15 @@ function buildchart() {
     var bubbleDiv = d3.select('#bubble')
     var gaugeDiv = d3.select('#gauge')
     var bardata = [{
-    x: [20, 30, 40, 50],
+    // using sample data...can't get to connect to samples.json data
+        x: [20, 30, 40, 50],
     y: 'bbtype',
     type: 'bar',
     orientation: 'h'
     }]; 
     var bubbledata = [{
-    x: [20, 30, 40, 50],
-    y: [20, 30, 40, 50],
+    x: '20, 30, 40, 50',
+    y: [],
     type: 'bubble',
     }];
     var gaugedata = [{
