@@ -1,5 +1,5 @@
 //Fetch the JSON data using D3 and console log it
-//var file_path = 'samples.json'
+var file_path = 'samples.json'
 
   
 //Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual
@@ -16,19 +16,18 @@ function init() {
     // Assign the dropdown menu option to a variable
     var selectedOption = dropdownMenu.value;
 
-    //console.log(dropdownMenuID);
-    //console.log(selectedOption);
-    //var firstSample = sampleNames[0];
+    console.log(dropdownMenuID);
+    console.log(selectedOption);
+    var samples = data['sampleNames'];
     buildchart(selectedOption);
     //buildMetadata(selectedOption);
-
-}
-init();
-
+};
 
 function dropdown(naveldata) {
     naveldata['species'].forEach(name=>{
-        var newOption = d3.select('#select')
+        var newOption = d3.select('#select').append('option');
+        newOption.text(name);
+        newOption.property('value',name);
 })
 };
 
@@ -48,9 +47,9 @@ function buildchart(TestSubjectIDNo) {
         // 2. Create a variable that holds the first sample in the metadata array.
         var metadata = metadataArray[0];
         // Create variables that hold the otu_ids, otu_labels, and sample_values.
-        var otu_ids = result.otu_ids;
-        var otu_labels = result.otu_labels;
-        var sample_values = result.sample_values;
+        //var otu_ids = result.otu_ids;
+        //var otu_labels = result.otu_labels;
+        //var sample_values = result.sample_values;
 
 
         var barDiv = d3.select('#bar')
@@ -58,19 +57,19 @@ function buildchart(TestSubjectIDNo) {
         var gaugeDiv = d3.select('#gauge')
         var bardata = [{
         // using sample data...can't get to connect to samples.json data
-        x: [20, 30, 40, 50],
+        x: ['otu_ids'],
         y: 'bbtype',
         type: 'bar',
         orientation: 'h'
         }]; 
         var bubbledata = [{
-        x: otu_ids,
-        y: sample_values,
-        text: otu_labels,
+        x: ['otu_ids'],
+        y: ['sample_values'],
+        text: 'otu_labels',
         type: 'bubble',
         }];
         var gaugedata = [{
-        x: [20, 30, 40, 50],
+        x: ['otu_ids'],
         y: 'bbtype',
         type: 'gauge',
         }];
